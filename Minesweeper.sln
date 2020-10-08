@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Minesweeper", "Minesweeper\Minesweeper.csproj", "{15DA4E94-4BD3-4764-8743-88431B186931}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{40B5C7CA-53FF-4A91-9416-69AB2B12B095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RuleEngine", "RuleEngine\RuleEngine.csproj", "{6AF024BC-0C54-4662-9397-55701B40229A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15DA4E94-4BD3-4764-8743-88431B186931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15DA4E94-4BD3-4764-8743-88431B186931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15DA4E94-4BD3-4764-8743-88431B186931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15DA4E94-4BD3-4764-8743-88431B186931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40B5C7CA-53FF-4A91-9416-69AB2B12B095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40B5C7CA-53FF-4A91-9416-69AB2B12B095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40B5C7CA-53FF-4A91-9416-69AB2B12B095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40B5C7CA-53FF-4A91-9416-69AB2B12B095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF024BC-0C54-4662-9397-55701B40229A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF024BC-0C54-4662-9397-55701B40229A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF024BC-0C54-4662-9397-55701B40229A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF024BC-0C54-4662-9397-55701B40229A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23E9C238-E17F-443F-9F6C-E425CA5ECCF3}
+	EndGlobalSection
+EndGlobal

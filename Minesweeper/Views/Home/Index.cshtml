@@ -1,0 +1,99 @@
+﻿@using System.Web.Mvc.Html
+
+<link href="~/css/site.css" rel="stylesheet" />
+@model GameViewModel
+
+@using (Html.BeginForm())
+{
+    <div id="minesweeper">
+        @Html.DropDownListFor(model => model.Difficulty, Enum.GetNames(typeof(DifficultyEnum)).Select(e => new SelectListItem { Text = e }),new { @onchange = "submitform();" })
+
+        @Html.HiddenFor(m => m.GameEnded)
+        @Html.HiddenFor(model => model.Playground.Board, new { id = "playground" })
+
+        @Html.DisplayNameFor(model => model.Difficulty)
+        @Html.DisplayFor(model => model.Difficulty)
+
+        @if (Model.GameEnded)
+        {
+            if (Model.IsDead)
+            {
+                <div class="game-over dead">Game over - lost</div>
+            }
+            else
+            {
+                <div class="game-over win">Game over - won</div>
+            }
+        }
+
+        @for (int row = 0; row < Model.Playground.Row; row++)
+        {
+            <div class="row">
+                @for (int column = 0; column < Model.Playground.Column; column++)
+                {
+                    var element = Model.Playground.Board[row, column];
+
+                    if (element.IsOpen)
+                    {
+                        if (element.IsMine)
+                        {
+                            if (element.IsFlagged)
+                            {
+                                <div class="flagged-mine element col"
+                                     data-is-mine="@element.IsMine"
+                                     data-is-flagged="@element.IsFlagged"
+                                     data-is-figure="@element.Figure"
+                                     data-is-open="@element.IsOpen"
+                                     data-column="@column"
+                                     data-row="@row"><img class="mine" src="~/mine.png" /></div>
+                            }
+                            else
+                            {
+                                <div class="stepped-on-a-mine element col"
+                                     data-is-mine="@element.IsMine"
+                                     data-is-flagged="@element.IsFlagged"
+                                     data-is-figure="@element.Figure"
+                                     data-is-open="@element.IsOpen"
+                                     data-column="@column"
+                                     data-row="@row"><img class="mine" src="~/mine.png" /></div>
+                            }
+                        }
+                        else
+                        {
+                            <div class="alive element col"
+                                 data-is-mine="@element.IsMine"
+                                 data-is-flagged="@element.IsFlagged"
+                                 data-is-figure="@element.Figure"
+                                 data-is-open="@element.IsOpen"
+                                 data-column="@column"
+                                 data-row="@row">@element.Figure</div>
+                            }
+                        }
+                        else if (element.IsFlagged)
+                        {
+                            <div class="flagged element col"
+                                 data-is-mine="@element.IsMine"
+                                 data-is-flagged="@element.IsFlagged"
+                                 data-is-figure="@element.Figure"
+                                 data-is-open="@element.IsOpen"
+                                 data-column="@column"
+                                 data-row="@row">F</div>
+                        }
+                        else if (!element.IsOpen && !element.IsFlagged)
+                        {
+                            <div class="closed element col"
+                                 data-is-mine="@element.IsMine"
+                                 data-is-flagged="@element.IsFlagged"
+                                 data-is-figure="@element.Figure"
+                                 data-is-open="@element.IsOpen"
+                                 data-column="@column"
+                                 data-row="@row"><i class="stepped-on-a-mine"></i></div>
+                        }
+                    }
+            </div>
+        }
+    </div>
+}
+@section scripts{
+    <script src="~/js/minesweeper/Index.js"></script>
+}
